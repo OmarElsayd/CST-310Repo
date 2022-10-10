@@ -6,5 +6,9 @@
 ``` bash
 g++ Project4.cpp -o <example> -lGL -lGLU -lglut
 ````
+and then 
+```bash
+./<example>
+```
 4. Next, run the command "./example" to run the scene. A window should pop up with a 3D represenatation of our scene. 
 5. Use the function "Ctrl + C" to exit the glut window. 
