@@ -27,7 +27,6 @@ void display() {
   glTranslatef(0.0, 9.5, -1.0);
   solidBox(25.0, 20.0, 1.5);
  
-  //Baseboard
   glColor3f(0.0f, 0.0f, 0.0f);
   glTranslatef(0.0, -10.2, 0.0);
   solidBox(27.0, 0.15, 0.1);
@@ -50,25 +49,32 @@ void display() {
   glPushMatrix();
 
   glColor3f(0.444f, 0.444f, 0.444f);
-  glTranslatef(-6, -0.26, -0.26);
+  glTranslatef(-6.7, -0.26, -0.26);
   solidBox(0.1, 1.5, 1);
 
   glPopMatrix();
   
+  glPushMatrix();
+
+  glColor3f(0.444f, 0.444f, 0.444f);
+  glTranslatef(-5.3, -0.26, -0.26);
+  solidBox(0.1, 1.5, 1);
+
+  glPopMatrix();
   //Begin Leftmost chair
   glPushMatrix();
 
   //Left arm of chair
-  glColor3f(0.454f, 0.724f, 0.929f);
+  glColor3f(0.401960784313725f, 0.23f, 0.2f);
   glTranslatef(-4.5, 0.0, 0.0);
   solidBox(0.25, 1.5, 1.5);
   
   //Bottome of seat
-  glColor3f(0.25f, 0.25f, 0.25f);
+  glColor3f(0.23f, 0.23f, 0.23f);
   glTranslatef(0.87, -0.25, 0.0);
   solidBox(1.5, 0.25, 1.5);
   
-  glColor3f(1.0f, 1.0f, 1.0f);
+  glColor3f(0.7f, 0.7f, 0.7f);
   glTranslatef(0.0, 0.25, 0.0);
   solidBox(1.5, 0.25, 1.5);
   
@@ -78,9 +84,9 @@ void display() {
   solidBox(1.5, 1.0, 0.25);
   
   //Right arm of chair
-  glColor3f(0.3f, 0.3f, 0.3f);
-  glTranslatef(0.87, -0.6, 0.8);
-  solidBox(0.25, 1.5, 1.5);
+  glColor3f (0.401960784313725f, 0.23f, 0.2f);
+  glTranslatef (0.87, -0.6, 0.8);
+  solidBox (0.25, 1.5, 1.5);
   
   //End Leftmost chair
   glPopMatrix();
@@ -89,7 +95,7 @@ void display() {
   glPushMatrix();
   
   //Left arm of chair
-  glColor3f(0.3f, 0.3f, 0.3f);
+  glColor3f(0.401960784313725f, 0.23f, 0.2f);
   glTranslatef(-2.2, 0.0, 0.0);
   solidBox(0.35, 1.5, 1.5);
   
@@ -99,14 +105,14 @@ void display() {
   solidBox(5.5, 0.25, 1.5);
   
   //Orange top seat
-  glColor3f(1.0f, 1.0f, 1.0f);
+  glColor3f(0.7f, 0.7f, 0.7f);
   glTranslatef(0.0, 0.25, 0.0);
   solidBox(5.5, 0.25, 1.5);
   
   //Back of chair
   
   //Right arm of chair
-  glColor3f(0.34f, 0.34f, 0.34f);
+  glColor3f(0.401960784313725f, 0.23f, 0.2f);
   glTranslatef(2.8, -0.2, 0.0);
   solidBox(0.35, 1.5, 0.3);
   
@@ -131,7 +137,7 @@ void init() {
   glMatrixMode(GL_MODELVIEW);
   glLoadIdentity();
   //Camera angle - void gluLookAt(eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ);
-  gluLookAt(1,2,10, 0,3,0, 0,1,0);
+  gluLookAt(1,2,8, 0,1,0, 0,1,0);
 }
 
 int main(int argc, char** argv) {
