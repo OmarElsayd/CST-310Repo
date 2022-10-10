@@ -6,9 +6,22 @@
 ``` bash
 g++ Project4.cpp -o <example> -lGL -lGLU -lglut
 ````
-and then 
+4. Next, run the command "./example" to run the scene. A window should pop up with a 3D represenatation of our scene. 
 ```bash
 ./<example>
 ```
-4. Next, run the command "./example" to run the scene. A window should pop up with a 3D represenatation of our scene. 
 5. Use the function "Ctrl + C" to exit the glut window. 
+
+## Or you can use Makefile
+We already implemented a makefile that has the following commands
+```
+all:
+	g++ Project4.cpp -o test -lGL -lGLU -lglut
+	./test
+```
+Just type in the terminal 
+```bash
+make
+``` 
+and it will run the program for you 
+Use the function "Ctrl + C" to exit the glut window. 
