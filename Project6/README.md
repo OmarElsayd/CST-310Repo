@@ -16,8 +16,8 @@ g++ Project6.cpp -o <example> -lDL -lglfw -lglut
 We already implemented a makefile that has the following commands
 ```
 all:
-	g++ Project6.cpp -o test -lglut -lglfw -lDL
-	./test
+	g++ Project6.cpp -o Project6 -lglut -lglfw -lDL
+	./Project6
 ```
 Just type in the terminal 
 ```bash
