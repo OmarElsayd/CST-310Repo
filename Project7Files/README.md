@@ -15,7 +15,6 @@ g++ Project6.cpp -o <example> -lDL -lglfw -lglut
 ## Or you can use Makefile
 We already implemented a makefile that has the following commands
 
-```
 Just type in the terminal 
 Triangle :
 ```bash
