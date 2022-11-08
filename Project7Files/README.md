@@ -14,10 +14,7 @@ g++ Project6.cpp -o <example> -lDL -lglfw -lglut
 
 ## Or you can use Makefile
 We already implemented a makefile that has the following commands
-```
-all:
-	g++ Project6.cpp -o Project6 -lglut -lglfw -lDL
-	./Project6
+
 ```
 Just type in the terminal 
 Triangle :
@@ -29,8 +26,7 @@ Cubes :
 ```bash
     make Cube
 ```
-
-``` 
+ 
 and it will run the program for you 
 Use the function "Ctrl + C" to exit the glut window. 
 
