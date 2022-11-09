@@ -11,7 +11,7 @@ g++ CheckeredTriangles.cpp -o <example> -lglut -lGL -lGLU
 
 For Cubes:
 ```bash
-g++ ColorCubeFlyBy.cpp -o <example> -lglut -lGL -lGLU
+g++ ColorCubeFlyby.cpp -o <example> -lglut -lGL -lGLU
 ````
 
 Next, run the command "./example" to run the scene. A window should pop up with a 3D represenatation of our scene. 
