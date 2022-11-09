@@ -1,7 +1,11 @@
 Triangle:
 	g++ CheckeredTriangles.cpp -o Triangle -lGL -lGLU -lglut
-	./test
+	./Triangle
 
 Cube:
 	g++ ColorCubeFlyby.cpp -o Cubes -lGL -lGLU -lglut
 	./Cubes
+
+clean:
+	rm -f Triangle Cubes
+	ls -l
