@@ -1,7 +1,5 @@
-// This application shows balls bouncing on a checkerboard, with no respect
-// for the laws of Newtonian Mechanics.  There's a little spotlight to make
-// the animation interesting, and arrow keys move the camera for even more
-// fun.
+//CST-310 Omar, Haley, and Adrian
+//Project 7 - part 2 Flying Cubes
 
 #include <GL/glut.h>
 #include <cmath>
@@ -35,7 +33,7 @@ GLfloat HH_color[8][3] = {
   {0.0, 0.0, 0.0}, {0.0, 0.0, 1.0}, {0.0, 1.0, 0.0}, {0.0, 1.0, 1.0},
   {1.0, 0.0, 0.0}, {1.0, 0.0, 1.0}, {1.0, 1.0, 0.0}, {1.0, 1.0, 1.0}};
 
-class Square {
+class Square { //square class
   double radius;
   // GLfloat* color;
   double maximumHeight;
@@ -79,12 +77,8 @@ public:
   }
 };
 
-// A checkerboard class.  A checkerboard has alternating red and white
-// squares.  The number of squares is set in the constructor.  Each square
-// is 1 x 1.  One corner of the board is (0, 0) and the board stretches out
-// along positive x and positive z.  It rests on the xz plane.  I put a
-// spotlight at (4, 3, 7).
-class Checkerboard {
+
+class Checkerboard { //plane1
   int displayListId;
   int width;
   int depth;
@@ -116,7 +110,7 @@ public:
 
 
 
-class Checkerboard2 {
+class Checkerboard2 { //plane 2
   int displayListId;
   int width;
   int depth;
@@ -150,7 +144,7 @@ public:
   }
 };
 
-namespace Cube {
+namespace Cube { //main rainbow gradient cube
 
   const int NUM_VERTICES = 8;
   const int NUM_FACES = 6;
@@ -181,13 +175,13 @@ namespace Cube {
 
 
 
-// Global variables: a camera, a checkerboard and some balls.
-Checkerboard checkerboard(8, 8);
-Checkerboard2 checkerboard2(8, 8);
+// Global variables: a camera, two planes and some squares.
+Checkerboard checkerboard(8, 8); //plane1
+Checkerboard2 checkerboard2(8, 8); //plane2
 Camera camera;
 Square squares[] = {
-  Square(1, 10, 6, 1),
-  Square(1, 10, 1, 7)
+  Square(1, 10, 6, 1), //left square
+  Square(1, 10, 1, 7) //right square
 };
 
 // Application-specific initialization: Set up global lighting parameters
@@ -204,7 +198,7 @@ void init() {
   checkerboard2.create();
 }
 
-// Draws one frame, the checkerboard then the balls, from the current camera
+// Draws one frame, the planes and then the squares, from the current camera
 // position.
 void display() {
   static GLfloat u = 0.0;
