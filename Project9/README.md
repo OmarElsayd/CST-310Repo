@@ -1,11 +1,11 @@
 # Instructions on how to compile our project9 openGL program
 
 Ensure that you have an instance of a Linux terminal.
-Make sure that the our project program is downloaded in the currently directory. It is a glut file, so there is only one file necessary to run our scene. (this would be our project c++ file, ending in .cpp) You can check this by writing the command "ls", and this can be verified if the file is shown within the current directory.
+Make sure that the our project program is downloaded in the currently directory. It is a glfw file and also utilizes soil, so there are a few files you need to run our scene, hence all vs, frgament, and extra files should be included in your current directory. (this would be our project c++ file, ending in .cpp) You can check this by writing the command "ls", and this can be verified if the file is shown within the current directory.
 Run the follwoing command to compile our scene -> 
 
 ```bash
-g++ Project9.cpp -o <example> -lglut -lGL -lGLU
+g++ Project9.cpp -o <example> -lglfw -lGL -lGLEW -lSOIL -lassimp
 ````
 
 Next, run the command "./example" to run the scene. A window should pop up with a 3D represenatation of our scene. 
