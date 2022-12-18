@@ -63,10 +63,10 @@ int main() {
 
     // INSERT SHADERS HERE FOR PROJECT 10
     Shader checkerboardShader("checkerboard.vs", "checkerboard.frag"); // Create shader for checkerboard
-    Shader cubeShader("cube.vs", "cube.frag"); // Create shader for cube object
-    Shader cylinderShader("cylinder.vs", "cylinder.frag"); // Create shader for cylinder object
-    Shader sphereShader("sphere.vs", "sphere.frag"); // Create shader for sphere object
-
+    // Shader cubeShader("cube.vs", "cube.frag"); // Create shader for cube object
+    // Shader cylinderShader("cylinder.vs", "cylinder.frag"); // Create shader for cylinder object
+    // Shader sphereShader("sphere.vs", "sphere.frag"); // Create shader for sphere object
+    Shader cubeShader("MoreCubes.vs", "MoreCubes.frag"); 
     // Models for Cylinder and Sphere
     Model cylinderModel("cylinder.obj"); // Defines model for cylinder using obj
     Model sphereModel("sphere.obj"); // Define model for sphere using obj
@@ -144,104 +144,41 @@ int main() {
 
     // DEFINE TEXTURES HERE Project 10 --> NOTE FOR PROJECT 10
 
-    // SPHERE TEXTURE
-    // GLuint texture;
-    // glGenTextures(1, &texture);
-    // glBindTexture(GL_TEXTURE_2D, texture); // All upcoming GL_TEXTURE_2D operations now have effect on this texture object
-    // // Set the texture wrapping parameters
-    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// Set texture wrapping to GL_REPEAT (usually basic wrapping method)
-    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    // // Set texture filtering parameters
-    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    // // Load image, create texture and generate mipmaps
-    // unsigned char* image = SOIL_load_image("Bump-Picture.jpg", &width, &height, 0, SOIL_LOAD_RGB);
-    // glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
-    // glGenerateMipmap(GL_TEXTURE_2D);
-    // SOIL_free_image_data(image);
-    // glBindTexture(GL_TEXTURE_2D, 0); // Unbind texture when done, so we won't accidentily mess up our texture.
-
-    //CUBE TEXTURE
-    // GLuint texture1;
-    // glGenTextures(1, &texture);
-    // glBindTexture(GL_TEXTURE_2D, texture); // All upcoming GL_TEXTURE_2D operations now have effect on this texture object
-    // // Set the texture wrapping parameters
-    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// Set texture wrapping to GL_REPEAT (usually basic wrapping method)
-    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    // // Set texture filtering parameters
-    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    // // Load image, create texture and generate mipmaps
-    // int width, height;
-    // unsigned char* image = SOIL_load_image("Bump-Map.jpg", &width, &height, 0, SOIL_LOAD_RGB);
-    // glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
-    // glGenerateMipmap(GL_TEXTURE_2D);
-    // SOIL_free_image_data(image);
-    // glBindTexture(GL_TEXTURE_2D, 0); 
-    // unsigned int loadCubemap(vector<std::string> faces);
-    //  {
-    //     unsigned int textureID;
-    //     unsigned int loadCubemap;
-    //     glGenTextures(1, &textureID);
-    //     glBindTexture(GL_TEXTURE_CUBE_MAP, textureID);
-
-    //     int width, height, nrChannels;
-    //     for (unsigned int i = 0; i < faces.size(); i++)
-    //     {
-    //         unsigned char *data = stbi_load(faces[i].c_str(), &width, &height, &nrChannels, 0);
-    //     if (data)
-    //     {
-    //         glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 
-    //                      0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data
-    //         );
-    //         stbi_image_free(data);
-    //     }
-    //     else
-    //     {
-    //         std::cout << "Cubemap tex failed to load at path: " << faces[i] << std::endl;
-    //         stbi_image_free(data);
-    //     }
-    //     }
-    //     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    //     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    //     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    //     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    //     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
-
-    //     return textureID;
+    //SPHERE TEXTURE
+    GLuint testureCyl;
+    glGenTextures(1, &testureCyl);
+    glBindTexture(GL_TEXTURE_2D, testureCyl); // All upcoming GL_TEXTURE_2D operations now have effect on this texture object
+    // Set the texture wrapping parameters
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// Set texture wrapping to GL_REPEAT (usually basic wrapping method)
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    // Set texture filtering parameters
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    int Sphwidth, spheight;
+    // Load image, create texture and generate mipmaps
+    unsigned char* Sphearimage = SOIL_load_image("Bump-Picture.jpg", &Sphwidth, &spheight, 0, SOIL_LOAD_RGB);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, Sphwidth, spheight, 0, GL_RGB, GL_UNSIGNED_BYTE, Sphearimage);
+    glGenerateMipmap(GL_TEXTURE_2D);
+    SOIL_free_image_data(Sphearimage);
+    glBindTexture(GL_TEXTURE_2D, 0);
+    //glBindTexture(GL_TEXTURE_2D, 0); // Unbind texture when done, so we won't accidentily mess up our texture.
     
-    // }
-
-    // vector<std::string> faces;
-    // {
-    // "negx.jpg",
-    // "negy.jpg",
-    // "negz.jpg",
-    // "posx.jpg",
-    // "posy.jpg",
-    // "posz.jpg";
-    // };
-
-    // unsigned int cubemapTexture = loadCubemap(faces); 
-
-    //Cylinder texture 
-    // GLuint texture2;
-    // glGenTextures(1, &texture);
-    // glBindTexture(GL_TEXTURE_2D, texture2); // All upcoming GL_TEXTURE_2D operations now have effect on this texture object
-    // // Set the texture wrapping parameters
-    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// Set texture wrapping to GL_REPEAT (usually basic wrapping method)
-    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    // // Set texture filtering parameters
-    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    // // Load image, create texture and generate mipmaps
-    // int width1, height1;
-    // unsigned char* image = SOIL_load_image("Bump-Map.jpg", &width, &height, 0, SOIL_LOAD_RGB);
-    // glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
-    // glGenerateMipmap(GL_TEXTURE_2D);
-    // SOIL_free_image_data(image);
-    // glBindTexture(GL_TEXTURE_2D, 0); 
-    
+    GLuint sky;
+    glGenTextures(1, &sky);
+    glBindTexture(GL_TEXTURE_2D, sky); // All upcoming GL_TEXTURE_2D operations now have effect on this texture object
+    // Set the texture wrapping parameters
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// Set texture wrapping to GL_REPEAT (usually basic wrapping method)
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    // Set texture filtering parameters
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    int Skywidth, skyheight;
+    // Load image, create texture and generate mipmaps
+    unsigned char* Skeyimage = SOIL_load_image("skybox.jpg", &Skywidth, &skyheight, 0, SOIL_LOAD_RGB);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, Skywidth, skyheight, 0, GL_RGB, GL_UNSIGNED_BYTE, Skeyimage);
+    glGenerateMipmap(GL_TEXTURE_2D);
+    SOIL_free_image_data(Skeyimage);
+    glBindTexture(GL_TEXTURE_2D, 0);
 
 
 
@@ -311,6 +248,8 @@ int main() {
 
         // CUBE
         cubeShader.Use(); // Activate cube shader
+        glBindTexture(GL_TEXTURE_2D, sky);
+        glBindVertexArray(0); // Bind VAO
 
         // Set uniform locations
         GLint cubeColorLoc = glGetUniformLocation(cubeShader.Program, "cubeColor"); // Retrieve uniform location
@@ -343,22 +282,24 @@ int main() {
 
         
         // CYLINDER
-        cylinderShader.Use(); // Activate cylinder shader
+        cubeShader.Use(); // Activate cylinder shader
+        glBindTexture(GL_TEXTURE_2D, testureCyl);
+        glBindVertexArray(0); // Bind VAO
        
 
-        GLint cylinderColorLoc = glGetUniformLocation(cylinderShader.Program, "cylinderColor"); // Retrieve cylinderColor location
-        lightColorLoc = glGetUniformLocation(cylinderShader.Program, "lightColor"); // Reset lightColor location
-        lightPosLoc = glGetUniformLocation(cylinderShader.Program, "lightPos"); // Reset lightPos location
-        viewPosLoc = glGetUniformLocation(cylinderShader.Program, "viewPos"); // Reset viewPos location
+        GLint cylinderColorLoc = glGetUniformLocation(cubeShader.Program, "cylinderColor"); // Retrieve cylinderColor location
+        lightColorLoc = glGetUniformLocation(cubeShader.Program, "lightColor"); // Reset lightColor location
+        lightPosLoc = glGetUniformLocation(cubeShader.Program, "lightPos"); // Reset lightPos location
+        viewPosLoc = glGetUniformLocation(cubeShader.Program, "viewPos"); // Reset viewPos location
 
         glUniform3f(cylinderColorLoc, 0.0f, 1.0f, 0.0f); // Pass color to uniform
         glUniform3f(lightColorLoc, 1.0f, 1.0f, 1.0f); // Pass light color to uniform
         glUniform3f(lightPosLoc, lightPos.x, lightPos.y, lightPos.z); // Pass light position to uniform
         glUniform3f(viewPosLoc, camera.Position.x, camera.Position.y, camera.Position.z); // Pass camera position to uniform
 
-        modelLoc = glGetUniformLocation(cylinderShader.Program, "model"); // Reset view location for cylinderShader
-        viewLoc = glGetUniformLocation(cylinderShader.Program, "view"); // Reset view location for cylinderShader
-        projLoc = glGetUniformLocation(cylinderShader.Program, "projection"); // Reset view location for cylinderShader
+        modelLoc = glGetUniformLocation(cubeShader.Program, "model"); // Reset view location for cylinderShader
+        viewLoc = glGetUniformLocation(cubeShader.Program, "view"); // Reset view location for cylinderShader
+        projLoc = glGetUniformLocation(cubeShader.Program, "projection"); // Reset view location for cylinderShader
 
         glm::mat4 view_cylinder = view; // Create mat4 view_cylinder using generic view identity
         view_cylinder = glm::translate(view_cylinder, glm::vec3(1.2f, -3.0f, -5.5f)); // Translate cylinder back, to the right, and down
@@ -369,39 +310,42 @@ int main() {
         glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model)); // Pass moel to shader
 
         
-        cylinderModel.Draw(cylinderShader); // Draw obj model
+        cylinderModel.Draw(cubeShader); // Draw obj model
+
+       // Swap screen buffers
 
 
         
         // SPHERE
-        sphereShader.Use(); // Activate sphereShader
+        cubeShader.Use(); // Activate sphereShader
 
-        GLint sphereColorLoc = glGetUniformLocation(sphereShader.Program, "sphereColor"); // Retrieve sphereColor location
-        lightColorLoc = glGetUniformLocation(sphereShader.Program, "lightColor"); // Reset lightColor location for sphereShader
-        lightPosLoc = glGetUniformLocation(sphereShader.Program, "lightPos"); // Reset lightPos location for sphereShader
-        viewPosLoc = glGetUniformLocation(sphereShader.Program, "viewPos"); // Reset viewPos location for sphereShader
+        GLint sphereColorLoc = glGetUniformLocation(cubeShader.Program, "sphereColor"); // Retrieve sphereColor location
+        lightColorLoc = glGetUniformLocation(cubeShader.Program, "lightColor"); // Reset lightColor location for sphereShader
+        lightPosLoc = glGetUniformLocation(cubeShader.Program, "lightPos"); // Reset lightPos location for sphereShader
+        viewPosLoc = glGetUniformLocation(cubeShader.Program, "viewPos"); // Reset viewPos location for sphereShader
 
         glUniform3f(sphereColorLoc, 0.0f, 0.0f, 1.0f); // Pass in sphere color to uniform
         glUniform3f(lightColorLoc, 1.0f, 1.0f, 1.0f); // Pass in light color to uniform
         glUniform3f(lightPosLoc, lightPos.x, lightPos.y, lightPos.z); // Pass in light position to uniform
         glUniform3f(viewPosLoc, camera.Position.x, camera.Position.y, camera.Position.z); // Pass in camera position to uniform
 
-        modelLoc = glGetUniformLocation(sphereShader.Program, "model"); // Reset model uniform location for sphereShader
-        viewLoc = glGetUniformLocation(sphereShader.Program, "view"); // Reset view uniform location for sphereShader
-        projLoc = glGetUniformLocation(sphereShader.Program, "projection"); // Reset projection uniform location for sphereShader
+        modelLoc = glGetUniformLocation(cubeShader.Program, "model"); // Reset model uniform location for sphereShader
+        viewLoc = glGetUniformLocation(cubeShader.Program, "view"); // Reset view uniform location for sphereShader
+        projLoc = glGetUniformLocation(cubeShader.Program, "projection"); // Reset projection uniform location for sphereShader
 
         glm::mat4 view_sphere = view; // Create mat4 view_sphere equal to view identity
-        view_sphere = glm::translate(view_sphere, glm::vec3(-1.2f, 0.0f, -5.0f)); // Translate sphere back and to the left
+        view_sphere = glm::translate(view_sphere, glm::vec3(-1.5f, 0.0f, -5.0f)); // Translate sphere back and to the left
         view_sphere = glm::scale(view_sphere, glm::vec3(0.5f, 0.5f, 0.5f)); // Scale down sphere
         
         glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view_sphere)); // Pass view_sphere to uniform
         glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection)); // Pass projection to uniform
         glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model)); // Pass model to uniform
 
-        sphereModel.Draw(sphereShader); // Draw sphere obj model
-
+        sphereModel.Draw(cubeShader); // Draw sphere obj model
+        glBindTexture(GL_TEXTURE_2D, testureCyl);
         glBindVertexArray(0); // Bind zero at end
-        glfwSwapBuffers(window); // Swap screen buffers
+
+        glfwSwapBuffers(window); 
 
     }
     // Deallocate resources
@@ -466,4 +410,4 @@ void do_movement() {
     }
 }
 
-    
+  
