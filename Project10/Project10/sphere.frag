@@ -26,7 +26,7 @@ void main() {
     float specularStrength = 0.75f; // Sets specularStrength
     vec3 viewDir = normalize(viewPos - FragPos); // Get viewDir
     vec3 reflectDir = reflect(-lightDir, norm); // Get reflectDir
-    float spec = pow(max(dot(viewDir, reflectDir), 0.0), 8); // Get spec
+    float spec = pow(max(dot(viewDir, reflectDir), 0.0), -5); // Get spec
     vec3 specular = specularStrength * spec * lightColor; // Set specular
 
     //shininess

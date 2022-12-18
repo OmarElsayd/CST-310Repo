@@ -157,7 +157,58 @@ int main() {
 
     glBindVertexArray(0); // Unbind VAO
 
-    // DEFINE TEXTURES HERE Project 10 --> NOTE FOR PROJECT 10
+    // int width, height;
+    // unsigned char* image = SOIL_load_image("Container1.jpg", &width, &height, 0, SOIL_LOAD_RGB);
+
+    // // Generate texture object
+    // GLuint texture;
+    // glGenTextures(1, &texture);
+
+    // // Bind texture object to texture unit 0
+    // glActiveTexture(GL_TEXTURE0);
+    // glBindTexture(GL_TEXTURE_2D, texture);
+
+    // // Set texture parameters
+    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    // // Set texture image data
+    // glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+
+    // // Generate mipmaps
+    // glGenerateMipmap(GL_TEXTURE_2D);
+
+    // // Free image data
+    // SOIL_free_image_data(image);
+
+    // // Unbind texture object
+    // glBindTexture(GL_TEXTURE_2D, 0);
+
+    // DEFINE TEXTURES HERE PROJECT 10 --> NOTE FOR PROJECT 10
+
+    // Load 3D texture image data
+    int width, height, depth;
+    unsigned char* image = SOIL_load_image("Container1.png", &width, &height, &depth, SOIL_LOAD_RGB);
+
+    // Generate texture object and bind it to the GL_TEXTURE_3D target
+    GLuint texture3D;
+    glGenTextures(1, &texture3D);
+    glBindTexture(GL_TEXTURE_3D, texture3D);
+
+    // Set texture wrapping and filtering options
+    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    // Copy image data into the texture object
+    glTexImage3D(GL_TEXTURE_3D, 0, GL_RGB, width, height, depth, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+
+    // Free image data
+    SOIL_free_image_data(image);
 
     // Game Loop
     while (!glfwWindowShouldClose(window)) {
@@ -180,7 +231,28 @@ int main() {
         glm::mat4 projection = glm::perspective(45.0f, (GLfloat)WIDTH / (GLfloat)HEIGHT, 0.1f, 100.0f); // Initialize projection using initial values
         glm::mat4 model = glm::mat4(1.0f); // Initialize model to be 4x4 identity
 
-        // BIND TEXTURES HERE PROJECT 10
+        // glActiveTexture(GL_TEXTURE0);
+        // glBindTexture(GL_TEXTURE_2D, texture);
+
+        // // Set texture uniform in shader program
+        // checkerboardShader.Use();
+        // GLint textureUniform = glGetUniformLocation(checkerboardShader.Program, "tex");
+        // glUniform1i(textureUniform, 0);
+
+        // // Set texture object as active texture for object
+        // glBindVertexArray(VAO);
+        // glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+        // glBindVertexArray(0);
+
+        // // Unbind texture object
+        // glBindTexture(GL_TEXTURE_2D, 0);
+
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_3D, texture3D);
+
+        // Set texture uniform in the checkerboard shader
+        checkerboardShader.Use();
+        glUniform1i(glGetUniformLocation(checkerboardShader.Program, "texture3D"), 0);
 
         // CHECKERBOARD
         checkerboardShader.Use(); // Use checkerboard shader
